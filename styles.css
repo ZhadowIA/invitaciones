@@ -1,0 +1,666 @@
+:root {
+  --azul-cielo: #bfe4ff;
+  --azul-oscuro: #244c6b;
+  --dorado: #caa56b;
+  --blanco: #ffffff;
+  --gris: #f4f7fb;
+}
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  background: #e1f5fd;
+  color: #333;
+}
+
+/* ====== HERO ====== */
+/* Botón de música */
+.music-btn {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  z-index: 15;
+  transition: transform .2s ease;
+}
+
+.music-btn:hover {
+  transform: scale(1.04);
+}
+
+.music-btn i {
+  font-size: 1.25rem;
+  color: #0c5c80;
+}
+
+/* por defecto muestro play */
+.music-btn .icon-pause {
+  display: none;
+}
+
+/* cuando está sonando */
+.music-btn.is-playing {
+  background: #0c5c80;
+}
+
+.music-btn.is-playing i {
+  color: #fff;
+}
+
+/* cambio de icono */
+.music-btn.is-playing .icon-play {
+  display: none;
+}
+.music-btn.is-playing .icon-pause {
+  display: inline-block;
+}
+
+@media (max-width: 480px) {
+  .music-btn {
+    top: .8rem;
+    right: .8rem;
+  }
+}
+
+header.hero {
+  min-height: 100vh;
+  max-height: 100vh;
+  background: linear-gradient(120deg, rgba(191, 228, 255, 0.9), rgba(36, 76, 107, 0.45)),
+    url("img/3D5A6782.JPG") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0rem 1.5rem 4rem;
+  position: relative;
+}
+
+header.hero::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(to top, #e1f5fd, transparent);
+}
+
+.hero-content {
+  max-width: 700px;
+  position: relative;
+  z-index: 2;
+  color: #fff;
+}
+
+.crown-logo {
+  width: 160px;          /* ajusta el tamaño aquí */
+  margin: 0 auto;   /* centrado + espacio abajo */
+  display: block;
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.18));
+}
+
+
+.badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: .35rem .85rem;
+  border-radius: 999px;
+  margin-bottom: 1.5rem;
+  letter-spacing: .05em;
+  font-size: 1.3rem;
+  color: #0c5c80;
+}
+
+.hero h1 {
+  font-family: "Great Vibes", cursive;
+  font-size: 10rem;
+  color: #0c5c80;
+  font-weight: 400;
+  transform: translateY(2px);
+  margin-block-end: 1.2em;
+}
+
+.hero .subtitle {
+  font-size: 4rem;
+  margin-bottom: 1.8rem;
+}
+
+.date {
+  font-size: 3rem;
+  letter-spacing: .05em;
+  margin-bottom: 2rem;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: .8rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.countdown-item {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  min-width: 70px;
+  padding: .7rem .5rem;
+  border-radius: .8rem;
+  backdrop-filter: blur(6px);
+}
+
+.countdown-item span {
+  display: block;
+}
+
+.countdown-number {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.btn-primary {
+  background: #fff;
+  color: #244c6b;
+  border: none;
+  padding: .85rem 1.8rem;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .2s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+}
+
+/* ====== SECCIONES ====== */
+section {
+  padding: 4rem 1.3rem;
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-title h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.3rem;
+  margin-bottom: .4rem;
+  color: #244c6b;
+}
+
+.divider {
+  width: 70px;
+  height: 3px;
+  background: linear-gradient(90deg, #244c6b, #bfe4ff);
+  margin: 0.8rem auto 0;
+  border-radius: 99px;
+}
+
+/* ====== INFO EVENTO ====== */
+.evento-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;     /* 👈 centra las tarjetas dentro del grid */
+}
+
+.evento-card {
+  background: #fff;
+  border-radius: 1.3rem;
+  padding: 1.5rem 1.5rem 1.3rem;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.06);
+  border-top: 4px solid rgba(36, 76, 107, 0.2);
+  width: min(100%, 360px);   /* 👈 no más de 360px, pero en cel se hace 100% */
+  text-align: center;
+}
+
+.evento-card h3,
+.evento-card p,
+.evento-card small,
+.evento-card a {
+  text-align: center;
+  display: block;
+}
+
+.evento-card h3 {
+  margin-top: 0;
+  color: #244c6b;
+  margin-bottom: .5rem;
+}
+
+.evento-card p {
+  margin: .25rem 0;
+}
+
+.evento-card a {
+  color: #5b2ca7;
+  text-decoration: underline;
+  margin-top: .3rem;
+}
+
+.evento-card small {
+  display: block;
+  margin-top: .8rem;
+  font-size: .8rem;
+  color: #777;
+}
+
+/* ====== MENSAJE ====== */
+.mensaje-box {
+  background: #f4f7fb;
+  border-left: 4px solid #bfe4ff;
+  border-radius: 1rem;
+  padding: 2rem;
+  line-height: 1.7;
+  text-align: center;
+  font-size: 1rem;
+}
+
+/* ====== AGRADECIMIENTOS ====== */
+#agradecimientos {
+  text-align: center; /* todo centrado */
+}
+
+.agradecimientos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+  justify-items: center; /* centra las cards dentro del grid */
+}
+
+.agradecimiento-card {
+  background: #fff;
+  border-radius: 1.3rem;
+  padding: 1.5rem 1.5rem 1.3rem;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.03);
+  border: 1px solid rgba(191, 228, 255, 0.3);
+  max-width: 340px;
+}
+
+.agradecimiento-card h3 {
+  margin-top: 0;
+  color: #244c6b;
+  font-family: "Playfair Display", serif;
+  margin-bottom: .6rem;
+}
+
+.agradecimiento-text {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.lista-nombres {
+  list-style: none;            /* sin bullets */
+  padding-left: 0;
+  margin: 0;
+}
+
+.lista-nombres li {
+  padding: .25rem 0;
+  border-bottom: none;         /* ya no línea */
+}
+
+.nombre-destacado {
+  display: inline-block;
+  font-weight: 700;
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  color: #244c6b;
+  letter-spacing: .01em;
+  background: rgba(191, 228, 255, 0.35);
+  padding: .35rem .9rem;
+  border-radius: 999px;
+  box-shadow: 0 6px 15px rgba(36, 76, 107, 0.08);
+}
+
+/* responsive agradecimientos */
+@media (max-width: 600px) {
+  .agradecimientos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .agradecimiento-card {
+    max-width: 100%;
+  }
+}
+
+/* ====== REGALOS ====== */
+#regalos {
+  text-align: center;
+}
+
+.regalos-box {
+  background: #f4f7fb;
+  border-radius: 1.2rem;
+  padding: 2.6rem 1.5rem 2.3rem;
+  max-width: 650px;
+  margin: 0 auto;
+  border: 1px solid rgba(191, 228, 255, 0.3);
+  line-height: 1.7;
+  font-size: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.regalo-icono {
+  width: 70px;
+  height: 70px;
+  background: #fff;
+  border: 3px solid rgba(191, 228, 255, 0.8);
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-size: 1.9rem;
+  color: #244c6b;
+  margin: 0 auto 1.3rem;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.05);
+}
+
+.regalos-box strong {
+  color: #244c6b;
+}
+
+/* ====== AVISOS ====== */
+#avisos {
+  text-align: center;
+}
+
+#avisos .avisos-box {
+  margin-bottom: 1.4rem;
+}
+
+#avisos .avisos-box:last-child {
+  margin-bottom: 0;
+}
+
+.avisos-box {
+  background: #fff7f4;
+  border: 1px solid rgba(202, 165, 107, 0.25);
+  border-radius: 1.2rem;
+  padding: 2rem 1.3rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.02);
+}
+
+.aviso-item {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.aviso-item:last-child {
+  margin-bottom: 0;
+}
+
+/* responsive */
+@media (max-width: 600px) {
+  .regalos-box,
+  .avisos-box {
+    padding: 1.8rem 1rem 1.6rem;
+  }
+
+  .regalo-icono {
+    width: 60px;
+    height: 60px;
+    font-size: 1.6rem;
+  }
+}
+
+
+/* ====== GALERÍA ====== */
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.galeria-item {
+  overflow: hidden;
+  border-radius: 1rem;
+  position: relative;
+  background: #eee;
+  aspect-ratio: 3/4;
+}
+
+.galeria-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .3s ease;
+}
+
+.galeria-item:hover img {
+  transform: scale(1.05);
+}
+
+/* ====== CONFIRMACIÓN ====== */
+/* Sección confirmación: ocupa toda la pantalla y alinea al fondo */
+#confirmacion {
+  position: relative;
+  min-height: 100vh;
+  background: url("img/3D5A6711.JPG") center/cover no-repeat;
+  display: flex;
+  flex-direction: column;      /* 👈 columna */
+  justify-content: flex-end;   /* 👈 al fondo */
+  align-items: center;         /* centrada horizontal */
+  padding: 4rem 1.2rem 1.8rem; /* espacio inferior para que no pegue al borde */
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  margin: 0;
+}
+
+#confirmacion .confirmacion-box {
+  position: relative;
+  z-index: 2;                  /* encima del fondo y del ::before del fade */
+  margin-bottom: .3rem;        /* pequeño respiro del borde inferior */
+  width: min(92%, 720px);      /* controla el ancho de la tarjeta */
+}
+
+#confirmacion::before {
+  content: "";
+  position: absolute;
+  top: -1px;              /* subimos un poco el degradado para que tape el “corte” */
+  left: 0;
+  width: 100%;
+  height: 100px;           /* qué tan largo es el difuminado */
+  background: linear-gradient(to bottom, #e1f5fd 0%, transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+
+#confirmacion::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(to top, #ffffff, transparent);
+}
+
+.confirmacion-box {
+  background: linear-gradient(140deg, #244c6b 0%, #bfe4ff 100%);
+  border-radius: 1.5rem;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  color: #fff;
+}
+
+.confirmacion-box h3 {
+  margin-top: 0;
+  font-size: 2rem;
+}
+
+.confirmacion-box p {
+  margin-bottom: 1.9rem;
+}
+
+.confirmacion-box .btn-primary {
+  background: #fff;
+  color: #244c6b;
+  font-weight: 600;
+}
+
+/* ====== FOOTER ====== */
+footer {
+  text-align: center;
+  padding: 2.5rem 1.3rem 3rem;
+  background: #f7fafc;
+  color: #666;
+  font-size: .9rem;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+/* 1) Tablets y pantallas medianas */
+@media (max-width: 992px) {
+  section {
+    max-width: 90%;
+    padding: 3.2rem 1rem;
+  }
+
+  .hero h1 {
+    font-size: 8rem;
+  }
+
+  .galeria-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+}
+
+/* 2) Teléfonos grandes (≤ 768px) */
+@media (max-width: 768px) {
+  header.hero {
+    min-height: 100vh;
+	max-height: 100vh;
+    padding-top: 5rem;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero .subtitle {
+    font-size: 1.7rem;
+  }
+
+  .hero .date {
+    font-size: 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: 8rem;
+  }
+
+  .countdown {
+    gap: .5rem;
+  }
+
+  section {
+    padding: 3rem 1.1rem;
+  }
+
+  .evento-grid {
+    grid-template-columns: 1fr; /* cards una debajo de la otra */
+  }
+
+  .confirmacion-box {
+    border-radius: 1.1rem;
+    padding: 2.2rem 1.4rem;
+  }
+}
+
+/* 3) Teléfonos chicos (≤ 480px) */
+@media (max-width: 480px) {
+  header.hero {
+    padding: 0rem 1rem 3rem;
+    background-position: center top;
+  }
+
+  .badge {
+    font-size: 1.4rem;
+  }
+
+  .crown-logo {
+    width: 160px;
+  }
+
+  .hero h1 {
+    font-size: 7rem;
+  }
+
+  .hero .subtitle {
+    font-size: 1.3rem;
+  }
+
+  .date {
+    font-size: 1rem;
+  }
+
+  .countdown {
+    flex-wrap: wrap;
+  }
+
+  .countdown-item {
+    min-width: 63px;
+    padding: .5rem .4rem;
+  }
+
+  section {
+    padding: 2.6rem .8rem;
+  }
+
+  .galeria-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .confirmacion-box h3 {
+    font-size: 1.6rem;
+  }
+
+  .btn-primary {
+    width: 100%;
+    text-align: center;
+  }
+
+  #confirmacion {
+	padding: 0rem 1rem 3rem;
+  }
+}
+
+/* 4) Muy chico (≤ 360px) */
+@media (max-width: 360px) {
+  .galeria-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 4rem;
+  }
+}
+
