@@ -106,6 +106,9 @@ header.hero::after {
   color: #fff;
 }
 
+.hero-content p{
+  font-family: "Alex Brush", cursive;
+}
 .crown-logo {
   width: 160px;          /* ajusta el tamaño aquí */
   margin: 0 auto;   /* centrado + espacio abajo */
@@ -132,7 +135,7 @@ header.hero::after {
   color: #0c5c80;
   font-weight: 400;
   transform: translateY(2px);
-  margin-block-end: 0.5em;
+  margin-block-end: 0em;
   margin-block-start: 0.2em;
 }
 
@@ -433,6 +436,110 @@ section {
   }
 }
 
+/* ====== ÁLBUM / QR ====== */
+#album {
+  display: flex;
+  justify-content: center;
+  padding: 4rem 1.3rem;
+}
+
+.album-box {
+  background: #fff;
+  border-radius: 1.4rem;
+  padding: 2.5rem 1.6rem 2.3rem;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.04);
+  border: 1px solid rgba(12, 92, 128, 0.08);
+}
+
+.album-title {
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  letter-spacing: .06em;
+  margin-bottom: 0rem;
+  margin-top: 0;
+  color: #0c5c80;
+}
+
+.album-subtitle {
+  font-family: "Great Vibes", "Alex Brush", cursive;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #0c5c80;
+  margin-block-start: 0;
+}
+
+.album-text {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.album-text.small {
+  margin-top: 1.3rem;
+  font-size: 1rem;
+  color: #555;
+}
+
+.album-qr {
+  display: inline-block;
+  padding: .5rem;
+  border: 3px solid #0c5c80;
+  border-radius: 1rem;
+  background: #fff;
+  margin-bottom: 1.4rem;
+}
+
+.album-qr img {
+  width: 190px;
+  height: 190px;
+  object-fit: contain;
+  display: block;
+}
+
+.album-name {
+  font-family: "Great Vibes", "Alex Brush", cursive;
+  font-size: 2.3rem;
+  margin-bottom: .3rem;
+  color: #333;
+}
+
+.album-xv {
+  letter-spacing: .15em;
+  font-size: .85rem;
+  margin-bottom: 1.1rem;
+}
+
+.album-divider {
+  width: 120px;
+  height: 1px;
+  background: #0c5c80;
+  margin: 0 auto;
+  position: relative;
+}
+
+.album-divider::after {
+  content: "✶";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  padding: 0 .4rem;
+  color: #0c5c80;
+  font-size: .75rem;
+}
+
+@media (max-width: 480px) {
+  #album {
+    padding: 3.2rem .8rem;
+  }
+  .album-box {
+    width: 100%;
+  }
+}
+
 
 /* ====== GALERÍA ====== */
 .galeria-grid {
@@ -589,7 +696,7 @@ footer {
   }
 
   .hero .date {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
 
   .hero h1 {
@@ -634,11 +741,11 @@ footer {
   }
 
   .hero .subtitle {
-    font-size: 1.3rem;
+    font-size: 2.3rem;
   }
 
   .date {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 
   .countdown {
