@@ -41,4 +41,27 @@ if (musicBtn && bgMusic) {
   });
 }
 
+// ====== ANIMACIÓN AL HACER SCROLL ======
+const revealEls = document.querySelectorAll(".reveal-right");
+
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        // si no quieres que se quite nunca, deja de observar
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  revealEls.forEach((el) => observer.observe(el));
+} else {
+  // fallback: si el navegador no soporta observer, las mostramos
+  revealEls.forEach((el) => el.classList.add("is-visible"));
+}
+
+
 
