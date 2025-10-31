@@ -295,7 +295,7 @@ section {
 .agradecimiento-card {
   background: #fff;
   border-radius: 1.4rem;
-  padding: 2.2rem 1.6rem 1.9rem;
+  padding: 2.2rem .8rem 1.9rem;
   max-width: 360px;
   box-shadow: 0 18px 35px rgba(12, 92, 128, 0.06);
   border: 1px solid rgba(12, 92, 128, 0.08);
