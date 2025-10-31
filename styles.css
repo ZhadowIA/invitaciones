@@ -281,75 +281,92 @@ section {
   font-size: 1rem;
 }
 
-/* ====== AGRADECIMIENTOS ====== */
 #agradecimientos {
-  text-align: center; /* todo centrado */
+  text-align: center;
 }
 
 .agradecimientos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.5rem;
-  justify-items: center; /* centra las cards dentro del grid */
+  justify-items: center;
 }
 
 .agradecimiento-card {
   background: #fff;
-  border-radius: 1.3rem;
-  padding: 1.5rem 1.5rem 1.3rem;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.03);
-  border: 1px solid rgba(191, 228, 255, 0.3);
-  max-width: 340px;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.06);
-  border-top: 4px solid rgba(36, 76, 107, 0.2);
+  border-radius: 1.4rem;
+  padding: 2.2rem 1.6rem 1.9rem;
+  max-width: 360px;
+  box-shadow: 0 18px 35px rgba(12, 92, 128, 0.06);
+  border: 1px solid rgba(12, 92, 128, 0.08);
+  position: relative;
+}
+
+.agradecimiento-card::before {
+  content: "💙";
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #b9e5fd;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-size: 1.3rem;
+  box-shadow: 0 8px 20px rgba(12, 92, 128, 0.12);
 }
 
 .agradecimiento-card h3 {
-  margin-top: 0;
-  color: #244c6b;
+  margin-top: .8rem;
   font-family: "Playfair Display", serif;
+  color: #0c5c80;
   margin-bottom: .6rem;
+  font-size: 1.5rem;
 }
 
 .agradecimiento-text {
-  margin-bottom: 1rem;
-  line-height: 1.6;
+  margin-bottom: 1.2rem;
+  line-height: 1.55;
+  font-size: 1.1rem;
 }
 
 .lista-nombres {
-  list-style: none;            /* sin bullets */
-  padding-left: 0;
+  list-style: none;
+  padding: 0;
   margin: 0;
-}
-
-.lista-nombres li {
-  padding: .25rem 0;
-  border-bottom: none;         /* ya no línea */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.3rem;
+  justify-content: center;
 }
 
 .nombre-destacado {
-  display: inline-block;
+  background: rgba(188, 224, 244, 0.65);
+  color: #0c5c80;
   font-weight: 700;
-  font-family: "Playfair Display", serif;
-  font-size: 20px;
-  color: #244c6b;
-  letter-spacing: .01em;
-  background: rgba(191, 228, 255, 0.35);
-  padding: .35rem .9rem;
+  padding: .45rem 1.2rem;
   border-radius: 999px;
-  box-shadow: 0 6px 15px rgba(36, 76, 107, 0.08);
+  box-shadow: 0 4px 12px rgba(12, 92, 128, 0.12);
+  white-space: nowrap;
+  font-size: 1.2rem;
 }
 
-/* responsive agradecimientos */
+.nombre-destacado.alt {
+  background: rgba(12, 92, 128, 0.1);
+}
+
 @media (max-width: 600px) {
   .agradecimientos-grid {
     grid-template-columns: 1fr;
   }
-
-  .agradecimiento-card {
-    max-width: 100%;
+  .nombre-destacado {
+    white-space: normal;
+    text-align: center;
   }
 }
+
 
 /* ====== REGALOS ====== */
 #regalos {
