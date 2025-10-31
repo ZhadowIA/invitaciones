@@ -1,5 +1,5 @@
 // Cambia esta fecha por la fecha real de los XV
-const targetDate = new Date("November 21, 2025 21:00:00").getTime();
+const targetDate = new Date("November 21, 2025 20:00:00").getTime();
 
 function updateCountdown() {
   const now = new Date().getTime();
