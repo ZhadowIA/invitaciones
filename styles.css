@@ -738,9 +738,11 @@ footer {
 
   .hero h1 {
     font-size: 7rem;
+    margin-top: 0;
   }
 
   .hero .subtitle {
+    margin-top: 0;
     font-size: 2rem;
   }
 
@@ -789,5 +791,4 @@ footer {
     font-size: 4rem;
   }
 }
-
 
