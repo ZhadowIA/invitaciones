@@ -1,0 +1,611 @@
+:root {
+    --color-bg: #050a14;
+    --color-text: #e0e0e0;
+    --color-border: rgba(255, 255, 255, 0.6);
+    --font-serif: 'Cinzel', serif;
+    --font-sans: 'Roboto', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    background-color: var(--color-bg);
+    background: radial-gradient(circle at center, #0f1c30 0%, #02050a 100%);
+    background-attachment: fixed;
+    /* Mantiene el fondo fijo mientras scrolleas */
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-serif);
+    color: var(--color-text);
+    font-weight: 400;
+}
+
+.serif-italic {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* 
+    ⭐ ESTRELLAS ALEATORIAS ⭐
+    Las estrellas ahora se generan automáticamente con JavaScript.
+    Para cambiar la cantidad de estrellas, abre el archivo js/script.js
+    y modifica la variable "starCount" (actualmente en 80 estrellas).
+    */
+    /* background: radial-gradient(circle at center, #0f1c30 0%, #02050a 100%);  <-- MOVIDO AL BODY */
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    /* Evita que las estrellas se salgan del contenedor */
+}
+
+.intro-text {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    /* Animación */
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.fade-in.visible .intro-text {
+    animation: textSlideIn 0.8s ease-out 0.2s forwards;
+}
+
+.sub-intro {
+    margin-bottom: 3rem;
+    color: #a0a0a0;
+    /* Animación */
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.fade-in.visible .sub-intro {
+    animation: textSlideIn 0.8s ease-out 0.4s forwards;
+}
+
+/* Card Styles */
+.card-custom {
+    border: 1px solid var(--color-border);
+    border-radius: 13px;
+    padding: 3rem 2rem;
+    transition: all 0.3s ease;
+    text-align: center;
+    background: linear-gradient(135deg, #0f1c30 0%, #02050a 100%);
+    /* Animación de entrada de la tarjeta */
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.fade-in.visible .card-custom {
+    animation: cardEntrance 0.6s ease-out forwards;
+}
+
+/* Card Animations */
+.card-custom:hover {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px);
+}
+
+.card-custom:active {
+    transform: scale(0.98);
+}
+
+.card-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    /* Animación de entrada del texto desde la izquierda */
+    opacity: 0;
+    transform: translateX(-50px);
+}
+
+.fade-in.visible .card-title {
+    animation: textSlideIn 0.8s ease-out 0.4s forwards;
+}
+
+.card-subtitle {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: #c0c0c0;
+    /* Animación de entrada del subtítulo desde la izquierda */
+    opacity: 0;
+    transform: translateX(-50px);
+}
+
+.fade-in.visible .card-subtitle {
+    animation: textSlideIn 0.8s ease-out 0.6s forwards;
+}
+
+/* Animaciones */
+@keyframes cardEntrance {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes textSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.card-divider {
+    width: 80%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin: 1rem auto;
+    /* Animación */
+    opacity: 0;
+    width: 0%;
+}
+
+.fade-in.visible .card-divider {
+    animation: dividerExpand 0.8s ease-out 0.6s forwards;
+}
+
+.lead {
+    font-size: 1.1rem;
+    font-weight: 300;
+    /* Animación */
+    opacity: 0;
+    transform: translateX(-50px);
+}
+
+.fade-in.visible .lead {
+    animation: textSlideIn 0.8s ease-out 0.8s forwards;
+}
+
+@keyframes dividerExpand {
+    from {
+        opacity: 0;
+        width: 0%;
+    }
+
+    to {
+        opacity: 1;
+        width: 80%;
+    }
+}
+
+/* Details Section */
+.details-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-text);
+    /* Animación */
+    opacity: 0;
+    transform: translateX(-50px);
+}
+
+.fade-in.visible .details-icon {
+    animation: textSlideIn 0.8s ease-out 0.4s forwards;
+}
+
+/* Locations Section */
+.location-card {
+    padding: 0;
+    border: 1px solid var(--color-border);
+    border-radius: 15px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f1c30 0%, #02050a 100%);
+    /* Animación de entrada */
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.fade-in.visible .location-card {
+    animation: cardEntrance 0.6s ease-out forwards;
+}
+
+.location-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.location-body {
+    padding: 2rem;
+    text-align: left;
+}
+
+.location-title {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    color: #a0a0a0;
+    /* Animación */
+    opacity: 0;
+    transform: translateX(-50px);
+}
+
+.fade-in.visible .location-title {
+    animation: textSlideIn 0.8s ease-out 0.4s forwards;
+}
+
+.location-name {
+    font-size: 1.8rem;
+    font-family: var(--font-serif);
+    margin-bottom: 0.5rem;
+    /* Animación */
+    opacity: 0;
+    transform: translateX(-50px);
+}
+
+.fade-in.visible .location-name {
+    animation: textSlideIn 0.8s ease-out 0.6s forwards;
+}
+
+.location-address {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 1.5rem;
+    /* Animación */
+    opacity: 0;
+    transform: translateX(-50px);
+}
+
+.fade-in.visible .location-address {
+    animation: textSlideIn 0.8s ease-out 0.8s forwards;
+}
+
+.btn-pill {
+    background-color: #d0d0d0;
+    color: #000;
+    border-radius: 50px;
+    padding: 0.5rem 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    border: none;
+    transition: all 0.3s ease;
+    width: 100%;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    /* Animación */
+    opacity: 0;
+    transform: translateX(-50px);
+}
+
+.fade-in.visible .btn-pill {
+    animation: textSlideIn 0.8s ease-out 1.0s forwards;
+}
+
+.countdown-box {
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    min-width: 100px;
+    margin: 10px;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.3);
+    /* Animación */
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+.fade-in.visible .countdown-box {
+    animation: cardEntrance 0.5s ease-out forwards;
+}
+
+.countdown-box:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.countdown-box:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.countdown-box:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.countdown-box:nth-child(4) {
+    animation-delay: 0.8s;
+}
+
+.btn-pill:hover {
+    background-color: #fff;
+    color: #000;
+    transform: scale(1.02);
+}
+
+/* Family Section */
+.family-header {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.family-card {
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 3rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, #0f1c30 0%, #02050a 100%);
+    /* Animación */
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.fade-in.visible .family-card {
+    animation: cardEntrance 0.6s ease-out forwards;
+}
+
+.family-names {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+    /* Animación */
+    opacity: 0;
+    transform: translateX(-50px);
+}
+
+.fade-in.visible .family-names {
+    animation: textSlideIn 0.8s ease-out 0.6s forwards;
+}
+
+.godparents-title {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 1rem;
+    display: inline-block;
+    width: 80%;
+    /* Animación */
+    opacity: 0;
+    transform: translateX(-50px);
+}
+
+.fade-in.visible .godparents-title {
+    animation: textSlideIn 0.8s ease-out 0.4s forwards;
+}
+
+/* Information Cards */
+.info-card {
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, #0f1c30 0%, #02050a 100%);
+    text-align: center;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Animación */
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.fade-in.visible .info-card {
+    animation: cardEntrance 0.6s ease-out forwards;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+}
+
+.info-icon {
+    font-size: 2.5rem;
+    color: var(--color-text);
+    /* Animación */
+    opacity: 0;
+    transform: translateX(-50px);
+}
+
+.fade-in.visible .info-icon {
+    animation: textSlideIn 0.8s ease-out 0.4s forwards;
+}
+
+.info-title {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    /* Animación */
+    opacity: 0;
+    transform: translateX(-50px);
+}
+
+.fade-in.visible .info-title {
+    animation: textSlideIn 0.8s ease-out 0.6s forwards;
+}
+
+.info-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #c0c0c0;
+    margin-top: 1rem;
+    /* Animación */
+    opacity: 0;
+    transform: translateX(-50px);
+}
+
+.fade-in.visible .info-text {
+    animation: textSlideIn 0.8s ease-out 0.8s forwards;
+}
+
+/* Countdown */
+.countdown-container {
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.countdown-title {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    font-family: var(--font-serif);
+}
+
+
+
+.countdown-number {
+    font-size: 2.5rem;
+    font-family: var(--font-serif);
+    font-weight: bold;
+    line-height: 1;
+}
+
+.countdown-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0.5rem;
+}
+
+/* Footer */
+.footer-divider {
+    width: 100px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin: 1rem auto;
+}
+
+.footer-text {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.2rem;
+    margin: 2rem 0;
+}
+
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.3s;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    color: white;
+}
+
+.music-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    left: 40px;
+    background-color: #FF6B6B;
+    color: #FFF;
+    border: none;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 28px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.music-float:hover {
+    transform: scale(1.1);
+    background-color: #FF5252;
+}
+
+.music-float.playing {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.text-muted {
+    color: #bbbbbb !important;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* Mobile Responsive Spacing */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .hero-section {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    section {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
